@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico">
-    <title>Elm App</title>
-</head>
-<body>
-    <div id="root"></div>
-    <script src="../src/index.js" type="module"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="o.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <title>TAI</title>
+  </head>
+  <body>
+    <header><h1>TAI</h1><p><a href="https://github.com/Forensor">@Forensor</a></p></header>
+    <div id="root">
+      <div id="panel">
+        <button>Human vs Human</button>
+        <button>Human vs Tai</button>
+        <button>Tai vs Human</button>
+      </div>
+      <div id="board">
+        <div class="square x"></div>
+        <div class="square o"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div id="info">Nought's turn</div>
+    </div>
+    <div id="source-link">
+      <a href="https://github.com/Forensor/TAI">Source code</a>
+    </div>
+  </body>
 </html>

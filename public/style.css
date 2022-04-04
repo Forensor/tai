@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 60px 120px;
+}
+
+header p {
+  padding-top: 10px;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 80% 10%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+html {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#root,
+#source-link {
+  font-size: 20px;
+}
+
+#panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 10px;
+  margin: auto;
+  width: 300px;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  height: 304px;
+  width: 304px;
+  margin: 20px auto;
+  background-image: url('./board.svg');
+  cursor: pointer;
+}
+
+#info {
+  margin: 20px auto;
+  width: 200px;
+  text-align: center;
+}
+
+#source-link {
+  font-size: 14px;
+  margin: 20px auto;
+}
+
+#source-link a {
+  opacity: 0.5;
+  transition: opacity 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+#source-link a:hover {
+  opacity: 1;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 5px;
+  background-color: rgb(135, 173, 223);
+  color: white;
+  cursor: pointer;
+  border: 0px;
+  max-width: 300px;
+  opacity: 0.75;
+  transition: opacity 0.25s ease-in-out;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.x {
+  background-image: url('./x.svg');
+}
+
+.o {
+  background-image: url('./o.svg');
+}
