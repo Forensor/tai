@@ -17,17 +17,20 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 80% 10%;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 }
 
 html {
   font-family: 'Ubuntu', sans-serif;
 }
 
-#root,
+#app,
 #source-link {
   font-size: 20px;
+}
+
+#app {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
 }
 
 #panel {
@@ -37,7 +40,8 @@ html {
   grid-column-gap: 0px;
   grid-row-gap: 10px;
   margin: auto;
-  width: 300px;
+  width: 200px;
+  margin-right: 30px;
 }
 
 #board {
@@ -48,20 +52,26 @@ html {
   grid-row-gap: 2px;
   height: 304px;
   width: 304px;
-  margin: 20px auto;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-left: 30px;
   background-image: url('./board.svg');
   cursor: pointer;
 }
 
 #info {
   margin: 20px auto;
+  margin-left: 85px;
   width: 200px;
   text-align: center;
+  grid-column-start: 2;
 }
 
 #source-link {
   font-size: 14px;
-  margin: 20px auto;
+  margin: 0px auto;
+  margin-top: 40px;
 }
 
 #source-link a {
@@ -82,13 +92,13 @@ html {
 
 button {
   font-family: inherit;
-  font-size: inherit;
-  padding: 5px;
+  font-size: 14px;
+  padding: 10px 0px;
   background-color: rgb(135, 173, 223);
   color: white;
   cursor: pointer;
   border: 0px;
-  max-width: 300px;
+  width: 200px;
   opacity: 0.75;
   transition: opacity 0.25s ease-in-out;
 }
@@ -103,4 +113,23 @@ button:hover {
 
 .o {
   background-image: url('./o.svg');
+}
+
+@media (max-width: 600px) {
+  #app {
+    display: block;
+  }
+
+  #panel {
+    margin: auto;
+  }
+
+  #board {
+    margin: 40px auto;
+    margin-bottom: 20px;
+  }
+
+  #info {
+    margin: auto;
+  }
 }

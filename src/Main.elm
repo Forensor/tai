@@ -2,10 +2,12 @@ module Main exposing (..)
 
 import Array exposing (Array)
 import Browser
-import Debug exposing (toString)
 import Html exposing (Html, div, h1, img, text)
 import Html.Attributes exposing (id, src)
 import Html.Events exposing (onClick)
+import Html exposing (button)
+import Html.Attributes exposing (classList)
+import Html.Attributes exposing (class)
 
 
 
@@ -173,23 +175,41 @@ teamToPiece team =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ text "Buttons to select gameplay"
+    div [ id "app" ]
+        [ viewPanel
         , viewBoard model
         , viewInfo model
+        ]
+
+viewPanel : Html Msg
+viewPanel = 
+    div [ id "panel" ]
+        [ button [onClick <| ChangeGameType HumanVsHuman]
+            [ text "Human vs Human" ]
+        , button [onClick <| ChangeGameType HumanVsTai]
+            [ text "Human vs Tai" ]
+        , button [ onClick <| ChangeGameType TaiVsHuman]
+            [ text "Tai vs Human" ]
         ]
 
 
 viewInfo : Model -> Html Msg
 viewInfo model =
+    div [id "info"] ([] ++
     if gameWon model then
-        text (toString (nextTurn model.turn) ++ " won!")
+        [text (showTeam (nextTurn model.turn) ++ " won!")]
+
     else if noMoreMoves model then
-        text "Draw"
+        [text "Draw"]
 
     else
-        text (toString model.turn)
+        [text (showTeam model.turn ++ "' turn")])
 
+showTeam : Team -> String
+showTeam team =
+    case team of
+        Crosses -> "Crosses"
+        Noughts -> "Noughts"
 
 gameWon : Model -> Bool
 gameWon model =
@@ -210,34 +230,35 @@ gameWon model =
     in
     List.any ((==) True) <| List.map (\cs -> inline (List.map (\c -> getPiece c model.board) cs)) possibilities
 
+
 noMoreMoves : Model -> Bool
-noMoreMoves model = 
+noMoreMoves model =
     List.all ((/=) (Just E)) <| List.map (\c -> getPiece c model.board) allCoords
 
 
 viewBoard : Model -> Html Msg
 viewBoard model =
-    div [] (List.map (viewPiece model) allCoords)
+    div [id "board"] (List.map (viewPiece model) allCoords)
 
 
 viewPiece : Model -> Coord -> Html Msg
 viewPiece model coord =
     case getPiece coord model.board of
         Just X ->
-            div [] [ text "X" ]
+            div [classList [("square", True),("x", True)]] [ ]
 
         Just O ->
-            div [] [ text "O" ]
+            div [classList [("square", True),("o", True)]] [ ]
 
         _ ->
-            div
+            div (class "square" ::
                 (if gameWon model then
                     []
 
                  else
                     [ onClick <| Move (teamToPiece model.turn) coord ]
-                )
-                [ text "Empty Square" ]
+                ))
+                [ ]
 
 
 main : Program () Model Msg
