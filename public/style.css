@@ -101,6 +101,7 @@ button {
   width: 200px;
   opacity: 0.75;
   transition: opacity 0.25s ease-in-out;
+  border-radius: 10px;
 }
 
 button:hover {
