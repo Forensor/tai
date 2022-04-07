@@ -88,6 +88,8 @@ html {
   height: 100px;
   width: 100px;
   background-size: cover;
+  opacity: 0.1;
+  transition: opacity ease-in-out 0.25s;
 }
 
 button {
@@ -110,10 +112,12 @@ button:hover {
 
 .x {
   background-image: url('./x.svg');
+  opacity: 1;
 }
 
 .o {
   background-image: url('./o.svg');
+  opacity: 1;
 }
 
 @media (max-width: 600px) {
