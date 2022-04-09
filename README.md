@@ -1,4 +1,4 @@
-<div style="text-align: center;"><img src="./public/o.ico" height="150"></div>
+<div align="center"><img src="./public/o.ico" height="150"></div>
 <div><h3 align="center"><b>TAI</b></h3>
 
   <p align="center">
