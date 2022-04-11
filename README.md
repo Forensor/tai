@@ -36,7 +36,7 @@ The build is minified, and the filenames include the hashes.
 
 TAI used to have a [minimax algorithm](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning). I have tried to implement it in a functional way in Elm, but it took way too long to make the moves. In a close future I would like to add this to the project.
 
-[Here](https://forensor.github.io/tai/)'s the legacy version.
+[Here](https://forensor.github.io/tai/)'s the legacy version including the AI.
 
 ## License
 
